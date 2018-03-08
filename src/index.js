@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 
-import './css/main.css';
+import './scss/main.scss';
 
 const DOM = document.getElementById('main');
 

@@ -1,6 +1,4 @@
-/**
- * Common webpack config
- */
+const autoprefixer = require('autoprefixer'); // eslint-disable-line
 
 module.exports = {
   module: {
@@ -22,15 +20,21 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader', options: { importLoaders: 1 } },
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 1 }
+          },
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [require('autoprefixer')()]
+              plugins: () => [autoprefixer()]
             }
+          },
+          {
+            loader: 'sass-loader'
           }
         ]
       }
